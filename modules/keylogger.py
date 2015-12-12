@@ -18,7 +18,7 @@ def OnMouseEvent(event):
     # check to see if target changed windows
     if event.WindowName != current_window:
         current_window = event.WindowName
-        data=data+"[PROCESS]"+current_window
+        data=data+"[PROCESS]"+str(current_window)
 
     # return True to pass the event to other handlers
     return True
