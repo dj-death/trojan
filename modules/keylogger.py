@@ -9,7 +9,7 @@ import win32event, win32clipboard
 import copy
 
 data=""
-current_window = None
+current_window = ""
 
 
 def OnMouseEvent(event):
